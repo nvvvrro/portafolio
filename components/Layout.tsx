@@ -1,25 +1,27 @@
-import styles from "./Layout.module.css";
-import utilStyles from "../styles/utils.module.css";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
+import { Navbar } from "@components";
 
-const name = "Navarro Marcelo. Code";
+const name = "Navarro Marcelo";
 export const siteTitle = "Navarro's Blog";
-const Layout = ({ children, home }: any) => {
+export const Layout = ({ children, home }: any) => {
   return (
-    <div className={styles.container}>
+    <div>
+      <Navbar />
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Navarro's Portafolio - personal website using Next.js and TS "
+          content="Learn how to build a personal website using Next.js"
         />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
             siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -28,8 +30,9 @@ const Layout = ({ children, home }: any) => {
         {home ? (
           <>
             <Image
+              priority
               src="/images/profile.jpg"
-              className={`${utilStyles.borderCircle} ${styles.headerHomeImage}`}
+              className={utilStyles.borderCircle}
               height={144}
               width={144}
               alt={name}
@@ -41,8 +44,9 @@ const Layout = ({ children, home }: any) => {
             <Link href="/">
               <a>
                 <Image
+                  priority
                   src="/images/profile.jpg"
-                  className={`${utilStyles.borderCircle} ${styles.headerImage}`}
+                  className={utilStyles.borderCircle}
                   height={108}
                   width={108}
                   alt={name}
@@ -68,5 +72,3 @@ const Layout = ({ children, home }: any) => {
     </div>
   );
 };
-
-export default Layout;
