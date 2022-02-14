@@ -1,8 +1,16 @@
-import React from "react";
 import type { NextPage } from "next";
+import { Layout } from "@components";
 
-const blog: NextPage = () => {
-  return <div>Hello World</div>;
+interface Props {
+  children: React.ReactNode;
+  clasNames?: string;
+}
+const Blog: NextPage<Props> = ({ clasNames }) => {
+  return (
+    <Layout>
+      <div>Blog</div>;
+    </Layout>
+  );
 };
 
-export default blog;
+export default Blog;
