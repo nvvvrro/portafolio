@@ -1,28 +1,53 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/Layout";
-import utilStyles from "../styles/utils.module.css";
+import { siteTitle, Layout } from "@components";
+import styles from "../styles/utils.module.css";
+import { getSortedPostsData } from "../lib/posts";
+import { Navbar } from "@components";
 
-const Home: NextPage = () => {
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+interface NextPageProps {
+  allPostsData: {
+    date: string;
+    title: string;
+    id: string;
+  }[];
+}
+const Home: NextPage<NextPageProps> = ({ allPostsData }) => {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section className={styles.headingMd}>
         <p>
-          Hola, soy Marcelo. Un placer conocerte. Desde que comencé mi viaje
-          como Informatico hace casi 2 años, he trabajado a
-          distanciadesarrollando aplicaciones web y móviles. he colaborado con
-          personas talentosas para crear productos digitales para uso comercial
-          y de consumo. Tengo una confianza tranquila, una curiosidad natural y
-          un trabajo constante para mejorar mis habilidades, un problema de
-          diseño a la vez.
+          Hola, soy Marcelo, Un placer conocerte, Bienvenido a mi blog. Aquí
+          podrás encontrar projectos, trabajos y artículos sobre el desarrollo
+          web con distintas tecnologías. Espero que te encuentres en el lugar
+          correcto.
         </p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{" "}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+      </section>
+      <section className={`${styles.headingMd} ${styles.padding1px}`}>
+        <h2 className={styles.headingLg}>Blog</h2>
+        <ul className={styles.list}>
+          {allPostsData.map(({ id, date, title }) => (
+            <li className={styles.listItem} key={id}>
+              {title}
+              <br />
+              {id}
+              <br />
+              {date}
+            </li>
+          ))}
+        </ul>
       </section>
     </Layout>
   );
