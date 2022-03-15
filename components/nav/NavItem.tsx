@@ -18,7 +18,6 @@ export const NavItem: FC<Props> = ({ title, href }) => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h1></h1>
             {title}
           </motion.h2>
         </a>
