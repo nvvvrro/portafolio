@@ -2,8 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
-import { Navbar } from "@components";
+import { Navbar, Footer } from "@/components";
 
 const name = "Navarro Marcelo";
 export const siteTitle = "Navarro's Blog";
@@ -32,12 +31,12 @@ export const Layout = ({ children, home }: any) => {
             <Image
               priority
               src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
+            
               height={144}
               width={144}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <h1 >{name}</h1>
           </>
         ) : (
           <>
@@ -46,16 +45,15 @@ export const Layout = ({ children, home }: any) => {
                 <Image
                   priority
                   src="/images/profile.jpg"
-                  className={utilStyles.borderCircle}
                   height={108}
                   width={108}
                   alt={name}
                 />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
+            <h2>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <a >{name}</a>
               </Link>
             </h2>
           </>
@@ -69,6 +67,7 @@ export const Layout = ({ children, home }: any) => {
           </Link>
         </div>
       )}
+      <Footer />
     </div>
   );
 };
