@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { siteTitle, Layout } from "@components";
-import styles from "../styles/utils.module.css";
+import { siteTitle, Layout, Navbar } from "components";
 import { getSortedPostsData } from "../lib/posts";
-import { Navbar } from "@components";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -27,7 +25,7 @@ const Home: NextPage<NextPageProps> = ({ allPostsData }) => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={styles.headingMd}>
+      <section>
         <p>
           Hola, soy Marcelo, Un placer conocerte, Bienvenido a mi blog. Aquí
           podrás encontrar projectos, trabajos y artículos sobre el desarrollo
@@ -35,11 +33,11 @@ const Home: NextPage<NextPageProps> = ({ allPostsData }) => {
           correcto.
         </p>
       </section>
-      <section className={`${styles.headingMd} ${styles.padding1px}`}>
-        <h2 className={styles.headingLg}>Blog</h2>
-        <ul className={styles.list}>
+      <section >
+        <h2 >Blog</h2>
+        <ul >
           {allPostsData.map(({ id, date, title }) => (
-            <li className={styles.listItem} key={id}>
+            <li  key={id}>
               {title}
               <br />
               {id}
