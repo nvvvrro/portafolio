@@ -1,15 +1,28 @@
+import Image from "next/image";
 import { NavItem } from ".";
 
 export const Navbar = () => {
   return (
-    <nav className="bg-primary-main">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
-        <div className="flex items-center justify-between h-16">
+    <nav className="container sticky mx-auto top-0 z-10 bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 border-b border-gray-200 shadow-sm">
+      <div className="flex flex-col max-w-7xl mx-auto px-4 gap-2">
+        <div className="flex relative items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
+            <Image
+              className="2xl:block cursor-pointer hover:opacity-80 transition-opacity duration-200 h-full w-full block"
+              src="/images/nvvvrro.png"
+              width={340}
+              height={34}
+              alt="Navarro"
+            />
+          </div>
+
+          <div className="flex-auto w-full py-6 pl-9 gap-4">
+            <ul className="flex space-x-8 items-center justify-end font-medium text-lg text-pink-700 uppercase">
               <NavItem title="Home" href="/" />
               <NavItem title="Blog" />
-            </div>
+              <NavItem title="Resume" />
+              <NavItem title="Contact" />
+            </ul>
           </div>
         </div>
       </div>

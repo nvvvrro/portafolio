@@ -8,7 +8,7 @@ const name = "Navarro Marcelo";
 export const siteTitle = "Navarro's Blog";
 export const Layout = ({ children, home }: any) => {
   return (
-    <div>
+    <div className="container mx-auto px-10 mb-8 ">
       <Navbar />
       <Head>
         <link rel="icon" href="/favicon.ico" />
@@ -31,12 +31,11 @@ export const Layout = ({ children, home }: any) => {
             <Image
               priority
               src="/images/profile.jpg"
-            
               height={144}
               width={144}
               alt={name}
             />
-            <h1 >{name}</h1>
+            <h1>{name}</h1>
           </>
         ) : (
           <>
@@ -53,7 +52,7 @@ export const Layout = ({ children, home }: any) => {
             </Link>
             <h2>
               <Link href="/">
-                <a >{name}</a>
+                <a>{name}</a>
               </Link>
             </h2>
           </>
