@@ -3,10 +3,10 @@ import { NavItem } from ".";
 
 export const Navbar = () => {
   return (
-    <nav className="container sticky mx-auto top-0 z-10 flex flex-col bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 border-b border-gray-200 shadow-sm">
-      <div className="flex flex-wrap max-w-7xl mx-auto px-4 gap-2 ">
+    <nav className="container sticky mx-auto top-0 z-10 bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 border-b border-gray-200 shadow-sm">
+      <div className="flex flex-col max-w-7xl mx-auto px-4 gap-2">
         <div className="flex relative items-center justify-between h-16">
-          <div className="flex items-center relative justify-between -px-4 py-6">
+          <div className="flex items-center">
             <Image
               className="2xl:block cursor-pointer hover:opacity-80 transition-opacity duration-200 h-full w-full block"
               src="/images/nvvvrro.png"
@@ -16,7 +16,7 @@ export const Navbar = () => {
             />
           </div>
 
-          <div className="flex-auto w-full py-6 pl-9">
+          <div className="flex-auto w-full py-6 pl-9 gap-4">
             <ul className="flex space-x-8 items-center justify-end font-medium text-lg text-pink-700 uppercase">
               <NavItem title="Home" href="/" />
               <NavItem title="Blog" />
