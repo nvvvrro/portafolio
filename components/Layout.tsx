@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "./layout.module.css";
 import { Navbar, Footer } from "@/components";
 import { FC } from "react";
-import { DarkMode } from "./nav/darkMode";
+import { DarkMode } from "./nav/DarkMode";
 
 export const siteTitle = "Navarro's Blog";
 
@@ -23,7 +23,7 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
   };
 
   return (
-    <div>
+    <div className="dark:bg-gray-900">
       <Head>
         <title>{meta.title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -40,14 +40,13 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
         <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-
-      <main className="container w-full dark:bg-primary-main px-4 py-8 mx-auto">
-        <div className="absolute top-0 md:right-6 right-0 z-20">
-          <DarkMode />
-        </div>
+      <header className="w-full py-4 mx-auto">
+        <DarkMode />
         <Navbar />
+      </header>
 
-        {/* <header className={styles.header}>
+      <main className="container w-full mx-auto px-4">
+        {/*  <header className={styles.header}>
           {home ? (
             <>
               <Image
@@ -80,7 +79,6 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
             </>
           )}
         </header> */}
-
         {children}
 
         {!home && (
@@ -90,9 +88,9 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
             </Link>
           </div>
         )}
-
-        <Footer />
       </main>
+
+      <Footer />
     </div>
   );
 };
