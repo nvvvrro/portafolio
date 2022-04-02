@@ -22,10 +22,7 @@ interface PostProps {
 }
 const Home: NextPage<PostProps> = ({ allPostsData }) => {
   return (
-    <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout home>
       <section>
         <p>
           Hola a todos, soy Marcelo Navarro, un desarrollador de software,
