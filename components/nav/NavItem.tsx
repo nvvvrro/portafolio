@@ -1,25 +1,30 @@
-import Link from "next/link";
-import { FC } from "react";
+import { Link } from "components";
+import { FC, useMemo } from "react";
 import { motion } from "framer-motion";
 
-interface Props {
+interface NavProps {
   title: string;
   href?: string;
 }
-export const NavItem: FC<Props> = ({ title, href }) => {
-  const hrefLowerCase = title.toLowerCase();
+export const NavItem: FC<NavProps> = ({ title, href }) => {
+  const hrefLowerCase = useMemo(
+    () => encodeURIComponent(title.toLowerCase()),
+    [title]
+  );
 
   return (
-    <Link href={href ? href : `/${hrefLowerCase}`}>
-      <a className="hover: transition-colors">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          {title}
-        </motion.h2>
-      </a>
+    <Link
+      href={href ? href : `/${hrefLowerCase}`}
+      className="hover:transition-colors hover:opacity-80"
+    >
+      <motion.h2
+        initial={{ opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {title}
+      </motion.h2>
     </Link>
   );
 };
