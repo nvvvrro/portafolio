@@ -1,9 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import { Navbar, Footer } from "@/components";
 import { FC } from "react";
+import { Navbar, Footer, Link } from "components";
 import { DarkMode } from "./nav/DarkMode";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 
 export const siteTitle = "Navarro's Blog";
 
@@ -81,11 +81,13 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
         {children}
 
         {!home && (
-          <div className={styles.backToHome}>
-            <Link href="/">
-              <a>← Back to home</a>
-            </Link>
-          </div>
+          <Link
+            href="/"
+            className="flex items-center justify-end mt-8 mb-2 text-gray-500 hover:text-gray-900"
+          >
+            <FontAwesomeIcon icon={faArrowAltCircleLeft} className="h-6 w-6 " />
+            <span className="ml-2 text-lg ">Back to home</span>
+          </Link>
         )}
       </main>
 
