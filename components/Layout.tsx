@@ -22,7 +22,7 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
   };
 
   return (
-    <div className="dark:bg-gray-900">
+    <>
       <Head>
         <title>{meta.title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -39,59 +39,29 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
         <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className="w-full py-4 mx-auto">
-        <DarkMode />
+
+      <div className="dark:bg-gray-900">
         <Navbar />
-      </header>
 
-      <main className="container w-full mx-auto px-4">
-        {/*  <header className={styles.header}>
-          {home ? (
-            <>
-              <Image
-                priority
-                src="/images/profile.jpg"
-                height={144}
-                width={144}
-                alt={name}
+        <main className="container flex-1 mx-auto px-6 max-w-7xl">
+          {children}
+
+          {!home && (
+            <Link
+              href="/"
+              className="flex items-center justify-end mt-8 mb-2 text-gray-500 hover:text-gray-900"
+            >
+              <FontAwesomeIcon
+                icon={faArrowAltCircleLeft}
+                className="h-6 w-6 "
               />
-              <h1>{name}</h1>
-            </>
-          ) : (
-            <>
-              <Link href="/">
-                <a>
-                  <Image
-                    priority
-                    src="/images/profile.jpg"
-                    height={108}
-                    width={108}
-                    alt={name}
-                  />
-                </a>
-              </Link>
-              <h2>
-                <Link href="/">
-                  <a>{name}</a>
-                </Link>
-              </h2>
-            </>
+              <span className="ml-2 text-lg">Back to home</span>
+            </Link>
           )}
-        </header> */}
-        {children}
+        </main>
 
-        {!home && (
-          <Link
-            href="/"
-            className="flex items-center justify-end mt-8 mb-2 text-gray-500 hover:text-gray-900"
-          >
-            <FontAwesomeIcon icon={faArrowAltCircleLeft} className="h-6 w-6 " />
-            <span className="ml-2 text-lg ">Back to home</span>
-          </Link>
-        )}
-      </main>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
