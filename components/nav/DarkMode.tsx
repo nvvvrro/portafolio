@@ -15,7 +15,7 @@ export const DarkMode = () => {
   }, [darken, theme, setTheme]);
 
   return (
-    <div className="absolute top-2 md:right-6 right-0 z-20">
+    <div className="absolute top-0 md:right-8 right-2 z-10">
       <motion.button
         aria-label="Toggle Dark Mode"
         type="button"
