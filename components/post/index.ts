@@ -1,3 +1,3 @@
-export * from "./PostCard";
-export * from "./Categories";
-export * from "./PostWidget";
+export * from "./postCard";
+export * from "./categories";
+export * from "./postWidget";

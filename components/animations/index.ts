@@ -1,2 +1,2 @@
-export * from "./letter/Text";
-export * from "./letter/Title";
+export * from "./letter/text";
+export * from "./letter/title";
