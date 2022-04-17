@@ -16,8 +16,8 @@ module.exports = {
       primary: {
         main: colors.gray[800],
       },
-      secondary: {
-        main: colors.yellow[500],
+      dark: {
+        main: "#150220",
       },
       black: colors.black,
       white: colors.white,
@@ -33,6 +33,7 @@ module.exports = {
       teal: colors.teal,
       green: colors.green,
       purple: colors.purple,
+      slate: colors.slate,
     },
   },
   fontFamily: {

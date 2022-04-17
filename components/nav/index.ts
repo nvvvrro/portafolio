@@ -1,3 +1,3 @@
-export * from "./Navbar";
-export * from "./NavItem";
-export * from "./DarkMode";
+export * from "./navbar";
+export * from "./navItem";
+export * from "./darkMode";

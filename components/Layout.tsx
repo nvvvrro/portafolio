@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { FC } from "react";
 import { Navbar, Footer, Link } from "components";
-import { DarkMode } from "./nav/DarkMode";
+import { DarkMode } from "./nav/darkMode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 
@@ -40,7 +40,7 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <div className="dark:bg-gray-900">
+      <div className="dark:bg-dark-main">
         <Navbar />
 
         <main className="container flex-1 mx-auto px-6 max-w-7xl">
