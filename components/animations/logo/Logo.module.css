@@ -1,9 +1,9 @@
-.div {
+.div_on {
   border: 3px solid rgba(22, 182, 212, 0.3);
   animation: blink 8s infinite;
 }
 
-.div_on {
+.div_animate {
   border: 3px solid rgba(22, 182, 212, 1);
   color: #ffc2fd;
   text-shadow: 0 0 10px #f205ae, 0 0 20px #f205ae, 0 0 40px #f205ae,
