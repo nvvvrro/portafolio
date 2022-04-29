@@ -1,30 +1,43 @@
 import { FC, useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import style from "./Logo.module.css";
+import clsx from "clsx";
+
+const Container = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 8 } },
+};
 
 export const Logo: FC = () => {
-  const [isFirstMount, setIsFirstMount] = useState(false);
 
-  const firstMountRef = useRef(true);
+  const activeAnimation = {
+    animationStart: () => {
+      document.getElementById("div_logo")?.classList.add(style.div_on);
+    },
+    animationComplete: () => {
+      document.getElementById("div_logo")?.classList.remove(style.div_on);
+    },
+  };
 
-  console.log(firstMountRef);
-
-  useEffect(() => {
-    if (firstMountRef.current) {
-      (async () => {
-        await new Promise((resolve) => setTimeout(resolve, 10000));
-        setIsFirstMount(true);
-      })();
-      firstMountRef.current = false;
-    }
-  }, [isFirstMount]);
+  const divStyle = clsx({
+    "text-5xl tracking-widest font-bold border-4 border-solid, p-5 relative h-16 cursor-pointer text-[#e685a4]":
+      true,
+    [style.div_animate]: true,
+  });
 
   return (
-    <div
-      className={`text-4xl tracking-widest text-[#24102f] font-bold border-4 border-solid, p-5 relative h-24 cursor-pointer ${
-        isFirstMount ? style.div_on : style.div
-      }`}
+    <motion.div
+      id="div_logo"
+      variants={Container}
+      initial="initial"
+      animate="animate"
+      onAnimationStart={activeAnimation.animationStart}
+      onAnimationComplete={activeAnimation.animationComplete}
+      className={divStyle}
     >
-      <span className={`absolute top-1/2 ${style.span}`}>NVVVRRO</span>
-    </div>
+      <span className={`${style.span} flex items-center justify-center`}>
+        nvvvrro
+      </span>
+    </motion.div>
   );
 };

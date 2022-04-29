@@ -1,6 +1,6 @@
 .div_on {
   border: 3px solid rgba(22, 182, 212, 0.3);
-  animation: blink 8s infinite;
+  animation: blink 8s ease infinite;
 }
 
 .div_animate {
