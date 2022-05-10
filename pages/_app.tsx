@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   }, [router]);
 
   return (
-    <ThemeProvider defaultTheme="light" attribute="class">
+    <ThemeProvider defaultTheme="system" attribute="class">
       <AnimatePresence exitBeforeEnter>
         <Component
           isFirstMount={isFirstMount}
