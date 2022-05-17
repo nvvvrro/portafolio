@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { FC } from "react";
 import { Navbar, Footer, Link } from "components";
-import { DarkMode } from "./nav/darkMode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 
