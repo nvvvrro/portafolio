@@ -3,7 +3,7 @@ import { Layout } from "components";
 import { getSortedPostsData } from "../lib/posts";
 import { PostCard, Categories, PostWidget } from "components/post";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 import { IntroTransition } from "@/components/animations/intro/introTransition";
 
 export async function getStaticProps() {
