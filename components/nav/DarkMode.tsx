@@ -25,11 +25,11 @@ export const DarkMode = () => {
   if (!mounted) return null;
 
   return (
-    <div className="absolute top-0 md:right-8 right-2 z-10">
+    <div className="absolute top-0 md:right-6 right-2 z-10">
       <motion.button
         aria-label="Toggle Dark Mode"
         type="button"
-        className="w-10 h-10 p-3 rounded focus:outline-none"
+        className="w-12 h-12 p-2 rounded focus:outline-none"
         onClick={() => handleTheme(!darken)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.5 }}

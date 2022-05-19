@@ -23,8 +23,6 @@ export const Logo: FC = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
-
   const activeAnimation = {
     animationStart: () => {
       dark &&
@@ -37,6 +35,7 @@ export const Logo: FC = () => {
           ?.classList.remove(style.div_on);
     },
   };
+  if (!mounted) return null;
 
   return (
     <>
@@ -53,7 +52,7 @@ export const Logo: FC = () => {
         >
           <div id="div_logo" className="p-6 relative h-16 cursor-pointer">
             <span
-              className={`flex items-center justify-center font-bold text-5xl tracking-widest p-5 -translate-y-11`}
+              className={`flex items-center justify-center font-bold text-4xl tracking-widest p-5 -translate-y-9 md:text-5xl md:-translate-y-11 `}
             >
               nvvvrro
             </span>
