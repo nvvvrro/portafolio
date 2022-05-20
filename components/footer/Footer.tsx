@@ -1,7 +1,6 @@
 import { FC } from "react";
-import user from "@/constant/data";
+import { user, socialLinks } from "config";
 import { Link } from "components";
-import { socialLinks } from "@/config/config";
 export const Footer: FC = () => {
   return (
     <footer className="text-gray-700 dark:text-gray-400">
