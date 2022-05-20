@@ -21,10 +21,13 @@ const sideVariants = {
 
 const itemVariants = {
   closed: {
-    opacity: 0,
+    x: -30,
+    transition: {
+      type: "spring",
+    },
   },
   open: { opacity: 1 },
-  whileHover: { scale: 1.1 },
+  whileHover: { scale: 1.2 },
   whileTap: { scale: 0.9 },
 };
 
@@ -33,7 +36,17 @@ const asideVariants = {
   animate: { width: 60 },
   exit: {
     width: 0,
-    transition: { delay: 0.7, duration: 0.3 },
+    transition: { delay: 0.3, duration: 0.2 },
+  },
+};
+
+const toggleVariants = {
+  open: {
+    x: "-5%",
+  },
+  closed: {
+    x: "-20%",
+    opacity: 1,
   },
 };
 
@@ -41,10 +54,18 @@ export const Sidebar = () => {
   const [open, onToggle] = useCycle(false, true);
 
   return (
-    <div className="sm:hidden">
-      <div className="flex fixed z-20 mt-6 ml-4">
-        <Menu onClick={onToggle} />
-      </div>
+    <div id="sidebar" className="sm:hidden">
+      <motion.div
+        className={`flex fixed z-20 mt-6 p-2 bg-opacity-80 dark:bg-opacity-80 bg-rose-100 dark:bg-purple-300 ${
+          open ? "rounded-3xl left-3" : "rounded-r-3xl"
+        } 
+        `}
+        variants={toggleVariants}
+        initial="closed"
+        animate={open ? "open" : "closed"}
+      >
+        <Menu onClick={onToggle} className={open ? "" : "ml-3"} />
+      </motion.div>
       <AnimatePresence>
         {open && (
           <motion.aside
@@ -56,7 +77,7 @@ export const Sidebar = () => {
           >
             <motion.div
               variants={sideVariants}
-              initial="closed"
+              initial="initial"
               animate="open"
               exit="closed"
               className="flex flex-col container items-center justify-between h-5/6 mt-auto "
@@ -66,9 +87,10 @@ export const Sidebar = () => {
                   key={index}
                   href={route.path}
                   variants={itemVariants}
-                  whileHover="whileHove"
+                  exit="closed"
+                  whileHover="whileHover"
                   whileTap="whileTap"
-                  className="flex-auto inline-flex p-7 items-center justify-start"
+                  className="flex-auto inline-flex  items-center justify-start p-4 my-3"
                 >
                   <FontAwesomeIcon
                     icon={route.icon}
