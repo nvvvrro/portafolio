@@ -24,6 +24,17 @@ const itemVariants = {
     opacity: 0,
   },
   open: { opacity: 1 },
+  whileHover: { scale: 1.1 },
+  whileTap: { scale: 0.9 },
+};
+
+const asideVariants = {
+  initial: { width: 0 },
+  animate: { width: 60 },
+  exit: {
+    width: 0,
+    transition: { delay: 0.7, duration: 0.3 },
+  },
 };
 
 export const Sidebar = () => {
@@ -31,40 +42,37 @@ export const Sidebar = () => {
 
   return (
     <div className="sm:hidden">
-      <div className="flex fixed z-20 m-6">
+      <div className="flex fixed z-20 mt-6 ml-4">
         <Menu onClick={onToggle} />
       </div>
       <AnimatePresence>
         {open && (
           <motion.aside
-            initial={{ width: 0 }}
-            animate={{ width: 50 }}
-            exit={{
-              width: 0,
-              transition: { delay: 0.7, duration: 0.3 },
-            }}
-            className="flex fixed flex-col pt-20 bg-rose-100 rounded-r-2xl "
+            variants={asideVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="flex fixed flex-col pt-20 bg-rose-100 dark:bg-purple-200 rounded-r-2xl z-10 bg-opacity-70 dark:bg-opacity-70"
           >
             <motion.div
-              className="flex flex-col container items-center justify-between h-5/6 mt-auto "
+              variants={sideVariants}
               initial="closed"
               animate="open"
               exit="closed"
-              variants={sideVariants}
+              className="flex flex-col container items-center justify-between h-5/6 mt-auto "
             >
               {routes.map((route, index) => (
                 <Link
                   key={index}
                   href={route.path}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover="whileHove"
+                  whileTap="whileTap"
                   className="flex-auto inline-flex p-7 items-center justify-start"
                 >
                   <FontAwesomeIcon
                     icon={route.icon}
-                    className="text-pink-700"
-                    size="lg"
+                    className="text-pink-700 dark:text-purple-900 h-7 w-auto"
                   />
                 </Link>
               ))}
