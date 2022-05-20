@@ -1,13 +1,7 @@
 import { FC } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faLinkedin,
-  faInstagram,
-  faFacebook,
-} from "@fortawesome/free-brands-svg-icons";
 import user from "@/constant/data";
 import { Link } from "components";
+import { socialLinks } from "@/config/config";
 export const Footer: FC = () => {
   return (
     <footer className="text-gray-700 dark:text-gray-400">
@@ -27,31 +21,18 @@ export const Footer: FC = () => {
                 </div>
               </div>
             </div>
-            <div className="space-x-4 flex flex-row items-center">
-              <Link href={user.socialLinks.instagram}>
-                <FontAwesomeIcon
-                  icon={faInstagram}
-                  className="h-6 w-6 text-pink-600 dark:text-gray-300"
-                />
-              </Link>
-              <Link href={user.socialLinks.linkedin}>
-                <FontAwesomeIcon
-                  icon={faLinkedin}
-                  className="h-6 w-6 text-blue-600 dark:text-gray-300"
-                />
-              </Link>
-              <Link href={user.socialLinks.github}>
-                <FontAwesomeIcon
-                  icon={faGithub}
-                  className="h-6 w-6 text-gray-900 dark:text-gray-300"
-                />
-              </Link>
-              <Link href={user.socialLinks.facebook}>
-                <FontAwesomeIcon
-                  icon={faFacebook}
-                  className="h-6 w-6 text-blue-700 dark:text-gray-300"
-                />
-              </Link>
+            <div className="space-x-6 flex flex-row items-center justify-end">
+              {socialLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.path}
+                  whileTap={{
+                    scale: 0.9,
+                  }}
+                >
+                  {link.icon}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
