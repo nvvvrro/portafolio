@@ -1,4 +1,4 @@
-const user = {
+export const user = {
   githubUsername: "nvvvrro",
   name: "Marcelo Navarro",
   designation: "FullStack Developer",
@@ -101,5 +101,3 @@ const user = {
     facebook: "https://www.facebook.com/marceloignacio.navarrocarrillo",
   },
 };
-
-export default user;
