@@ -1,9 +1,11 @@
 import React, { FC, useCallback } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 import type { LinkProps as NextLinkProps } from "next/link";
+import type { MotionProps } from "framer-motion";
 
-export interface LinkProps extends NextLinkProps {
+export interface LinkProps extends NextLinkProps, MotionProps {
   className?: string;
 }
 
@@ -26,14 +28,15 @@ export const Link: FC<LinkProps> = ({
 
   return (
     <NextLink href={href} passHref {...props}>
-      <a
+      <motion.a
         onClick={handleClick}
         role="link"
         tabIndex={0}
         className={`hover:no-underline ${className}`}
+        {...props}
       >
         {children}
-      </a>
+      </motion.a>
     </NextLink>
   );
 };
