@@ -1,5 +1,6 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useTheme } from "next-themes";
 
 const variants = {
   path1: {
@@ -19,9 +20,10 @@ const variants = {
 
 interface PropsMenu {
   onClick: () => void;
+  className?: string;
 }
 
-export const Menu: FC<PropsMenu> = ({ onClick }) => {
+export const Menu: FC<PropsMenu> = ({ onClick, className = "" }) => {
   const [isOpen, setOpen] = useState(false);
   const path01Controls = useAnimation();
   const path02Controls = useAnimation();
@@ -48,25 +50,30 @@ export const Menu: FC<PropsMenu> = ({ onClick }) => {
         onClickAnimate();
         onClick();
       }}
+      className={className}
     >
-      <svg width="24" height="24" viewBox="0 0 24 24" className="fill-current ">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        stroke="currentColor"
+        className="text-slate-800 dark:text-white "
+      >
         <motion.path
           {...variants.path1.closed}
           animate={path01Controls}
           transition={{ duration: 0.2 }}
-          stroke="#000"
         />
         <motion.path
           {...variants.path2.closed}
           animate={path02Controls}
           transition={{ duration: 0.2 }}
-          stroke="#000"
         />
         <motion.path
           {...variants.path3.closed}
           animate={path03Controls}
           transition={{ duration: 0.3 }}
-          stroke="#000"
         />
       </svg>
     </button>
