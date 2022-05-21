@@ -1,38 +1,48 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
-export const DarkMode = () => {
+export const DarkMode: FC = () => {
   const { theme, setTheme } = useTheme();
-  const [darken, setDarken] = useState(false);
+
+  const dark = theme === "dark" ? true : false;
+
+  const [darken, setDarken] = useState(dark);
+  const [mounted, setMounted] = useState(false);
+
+  const handleTheme = (theme: boolean) => {
+    setDarken(theme);
+  };
 
   useEffect(() => {
-    setDarken(true);
+    setMounted(true);
   }, []);
 
-  const handleTheme = useCallback(() => {
-    darken && setTheme(theme === "light" ? "dark" : "light");
-  }, [darken, theme, setTheme]);
+  useEffect(() => {
+    setTheme(darken ? "dark" : "light");
+  }, [darken, setTheme]);
+
+  if (!mounted) return null;
 
   return (
-    <div className="absolute top-0 md:right-8 right-2 z-10">
+    <div className="absolute sm:top-0 md:right-6 right-2 z-10">
       <motion.button
         aria-label="Toggle Dark Mode"
         type="button"
-        className="w-10 h-10 p-3 rounded focus:outline-none"
-        onClick={handleTheme}
+        className="w-12 h-12 p-2 rounded focus:outline-none"
+        onClick={() => handleTheme(!darken)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.5 }}
       >
-        {darken && (
+        {mounted && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 34 34"
+            viewBox="0 0 28 28"
             fill="currentColor"
             stroke="currentColor"
-            className="md:w-12 md:h-12 w-9 h-9 text-yellow-400 dark:text-yellow-500"
+            className="md:w-10 md:h-10 w-11 h-11 text-yellow-400 dark:text-yellow-500"
           >
-            {theme === "dark" ? (
+            {darken ? (
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

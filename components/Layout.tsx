@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { FC } from "react";
 import { Navbar, Footer, Link } from "components";
-import { DarkMode } from "./nav/darkMode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
+import { Sidebar } from "./nav/sidebar";
 
 export const siteTitle = "Navarro's Blog";
 
@@ -41,6 +41,7 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
       </Head>
 
       <div className="dark:bg-dark-main">
+        <Sidebar />
         <Navbar />
 
         <main className="container flex-1 mx-auto px-6 max-w-7xl">

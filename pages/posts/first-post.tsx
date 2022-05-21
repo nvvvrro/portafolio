@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import Head from "next/head";
-import { Layout } from "@components";
+import { Layout } from "components";
 
 const firstPost: NextPage = () => {
   return (

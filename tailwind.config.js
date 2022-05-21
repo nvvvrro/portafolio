@@ -17,7 +17,9 @@ module.exports = {
         main: colors.gray[800],
       },
       dark: {
-        main: "#150220",
+        main: "#171120",
+        second: "#ff83cd",
+        third: "#8bbae9",
       },
       black: colors.black,
       white: colors.white,
