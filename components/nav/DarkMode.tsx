@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
-export const DarkMode = () => {
+export const DarkMode: FC = () => {
   const { theme, setTheme } = useTheme();
 
   const dark = theme === "dark" ? true : false;
@@ -25,7 +25,7 @@ export const DarkMode = () => {
   if (!mounted) return null;
 
   return (
-    <div className="absolute top-0 md:right-6 right-2 z-10">
+    <div className="absolute sm:top-0 md:right-6 right-2 z-10">
       <motion.button
         aria-label="Toggle Dark Mode"
         type="button"
@@ -37,10 +37,10 @@ export const DarkMode = () => {
         {mounted && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 34 34"
+            viewBox="0 0 28 28"
             fill="currentColor"
             stroke="currentColor"
-            className="md:w-12 md:h-12 w-9 h-9 text-yellow-400 dark:text-yellow-500"
+            className="md:w-10 md:h-10 w-11 h-11 text-yellow-400 dark:text-yellow-500"
           >
             {darken ? (
               <path

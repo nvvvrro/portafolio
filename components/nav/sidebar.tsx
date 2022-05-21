@@ -3,6 +3,7 @@ import { motion, useCycle, AnimatePresence } from "framer-motion";
 import { Link } from "components";
 import { Menu } from "./menu";
 import { routes } from "config/config";
+import { FC } from "react";
 
 const sideVariants = {
   closed: {
@@ -50,7 +51,7 @@ const toggleVariants = {
   },
 };
 
-export const Sidebar = () => {
+export const Sidebar:FC = () => {
   const [open, onToggle] = useCycle(false, true);
 
   return (
