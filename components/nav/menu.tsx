@@ -1,8 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { useTheme } from "next-themes";
 
-const variants = {
+const menuVariants = {
   path1: {
     open: { d: "M3.06061 2.99999L21.0606 21" },
     closed: { d: "M0 9.5L24 9.5" },
@@ -32,15 +31,15 @@ export const Menu: FC<PropsMenu> = ({ onClick, className = "" }) => {
   const onClickAnimate = async () => {
     setOpen(!isOpen);
     if (!isOpen) {
-      await path02Controls.start(variants.path2.moving);
-      path01Controls.start(variants.path1.open);
-      path02Controls.start(variants.path2.open);
-      path03Controls.start(variants.path3.open);
+      await path02Controls.start(menuVariants.path2.moving);
+      path01Controls.start(menuVariants.path1.open);
+      path02Controls.start(menuVariants.path2.open);
+      path03Controls.start(menuVariants.path3.open);
     } else {
-      path01Controls.start(variants.path1.closed);
-      await path02Controls.start(variants.path2.moving);
-      path02Controls.start(variants.path2.closed);
-      path03Controls.start(variants.path3.closed);
+      path01Controls.start(menuVariants.path1.closed);
+      await path02Controls.start(menuVariants.path2.moving);
+      path02Controls.start(menuVariants.path2.closed);
+      path03Controls.start(menuVariants.path3.closed);
     }
   };
 
@@ -61,17 +60,17 @@ export const Menu: FC<PropsMenu> = ({ onClick, className = "" }) => {
         className="text-slate-800 dark:text-white "
       >
         <motion.path
-          {...variants.path1.closed}
+          {...menuVariants.path1.closed}
           animate={path01Controls}
           transition={{ duration: 0.2 }}
         />
         <motion.path
-          {...variants.path2.closed}
+          {...menuVariants.path2.closed}
           animate={path02Controls}
           transition={{ duration: 0.2 }}
         />
         <motion.path
-          {...variants.path3.closed}
+          {...menuVariants.path3.closed}
           animate={path03Controls}
           transition={{ duration: 0.3 }}
         />
