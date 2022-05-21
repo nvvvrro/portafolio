@@ -1,0 +1,37 @@
+.logo_text_motion {
+  animation: blink 8s infinite;
+}
+
+.logo_text {
+  color: #fdc2fd;
+  text-shadow: 0 0 10px #f205ae, 0 0 20px #f205ae, 0 0 40px #f205ae,
+    0 0 80px #f205ae, 0 0 160px #f205ae, 0 0 320px #f205ae, 0 0 640px #f205ae;
+}
+
+@keyframes blink {
+  0%,
+  18%,
+  20%,
+  50.1%,
+  60%,
+  65.1%,
+  80%,
+  90.1%,
+  92% {
+    color: #1f0e28;
+    text-shadow: none;
+  }
+
+  18.1%,
+  20.1%,
+  30%,
+  50%,
+  60.1%,
+  65%,
+  80.1%,
+  100% {
+    color: #ffc2fd;
+    text-shadow: 0 0 10px #f205ae, 0 0 20px #f205ae, 0 0 40px #f205ae,
+      0 0 80px #f205ae, 0 0 160px #f205ae, 0 0 320px #f205ae, 0 0 640px #f205ae;
+  }
+}

@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import style from "./Logo.module.css";
-import { useTheme } from "next-themes";
 
-const ContainerLogo = {
+const logoVariants = {
   animate: {
     opacity: 1,
     transition: {
@@ -23,36 +23,40 @@ export const Logo: FC = () => {
     setMounted(true);
   }, []);
 
+  if (!mounted) return null;
+
   const activeAnimation = {
-    animationStart: () => {
-      dark &&
-        document.getElementById("container_logo")?.classList.add(style.div_on);
-    },
-    animationComplete: () => {
+    start: () => {
       dark &&
         document
           .getElementById("container_logo")
-          ?.classList.remove(style.div_on);
+          ?.classList.add(style.logo_text_motion);
+    },
+    complete: () => {
+      dark &&
+        document
+          .getElementById("container_logo")
+          ?.classList.remove(style.logo_text_motion);
     },
   };
-  if (!mounted) return null;
 
   return (
     <>
       {mounted && (
         <motion.div
           id="container_logo"
-          variants={ContainerLogo}
+          variants={logoVariants}
           animate="animate"
-          onAnimationStart={activeAnimation.animationStart}
-          onAnimationComplete={activeAnimation.animationComplete}
-          className={`${
-            dark ? style.div_animated : "text-pink-800"
-          } hidden sm:flex `}
+          onAnimationStart={activeAnimation.start}
+          onAnimationComplete={activeAnimation.complete}
+          className={`${dark ? style.logo_text : "text-pink-800"}`}
         >
-          <div id="div_logo" className="p-6 relative h-16 cursor-pointer">
+          <div
+            id="div_logo"
+            className="p-6 relative h-12 sm:h-16 cursor-pointer"
+          >
             <span
-              className={`flex items-center justify-center font-bold text-4xl tracking-widest p-5 -translate-y-9 md:text-5xl md:-translate-y-11 `}
+              className={`flex items-center justify-center font-bold tracking-widest p-5 text-3xl sm:text-4xl md:text-5xl -translate-y-10 sm:-translate-y-9 md:-translate-y-11 `}
             >
               nvvvrro
             </span>
