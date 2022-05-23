@@ -43,7 +43,7 @@ export const Navbar: FC = () => {
   };
   return (
     <>
-      <header className="container flex-wrap relative sm:sticky mx-auto top-0 z-10 bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 dark:bg-opacity-10 shadow-sm min-w-full ">
+      <header className="container flex-wrap relative sm:sticky mx-auto top-0 z-10 bg-white backdrop-filter backdrop-blur-lg bg-opacity-5 shadow-sm min-w-full ">
         {mounted && (
           <motion.div
             id="nav_border"
@@ -62,7 +62,7 @@ export const Navbar: FC = () => {
                 <Logo />
 
                 <div className="hidden sm:block flex-auto w-full py-6 gap-4 items-center justify-end pl-4 pr-8 md:pr-20">
-                  <ul className="flex md:space-x-14 space-x-8 items-center justify-end font-medium md:text-md text-sm text-pink-700 uppercase">
+                  <ul className="flex md:space-x-14 space-x-8 items-center justify-end font-medium md:text-md text-sm text-pink-700 dark:text-dark-third uppercase">
                     {routes.map((route, index) => (
                       <NavItem key={index} href={route.path} {...route} />
                     ))}
