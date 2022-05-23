@@ -40,7 +40,10 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <div className="dark:bg-dark-main">
+      <div
+        className="-main bg-gradient-to-tl from-[#ffe3f4] via-[#ebfffe] to-white dark:from-[#2b072d] dark:via-[#0f0623]
+         dark:to-[#06010a]"
+      >
         <Sidebar />
         <Navbar />
 
