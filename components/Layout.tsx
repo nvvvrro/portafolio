@@ -1,10 +1,8 @@
 import Head from "next/head";
 import { FC } from "react";
-import { Navbar, Footer, Link } from "components";
+import { Navbar, Footer, Link, Sidebar } from "components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
-import { Sidebar } from "./nav/sidebar";
-
 export const siteTitle = "Navarro's Blog";
 
 interface LayoutProps {
@@ -40,16 +38,11 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <div
-        className="-main bg-gradient-to-tl from-[#ffe3f4] via-[#ebfffe] to-white dark:from-[#2b072d] dark:via-[#0f0623]
-         dark:to-[#06010a]"
-      >
+      <div className="bg-gradient-to-t from-[#ffe3f4] via-[#ebfffe] to-white dark:from-[#2b072d] dark:via-[#0f0623] dark:to-[#06010a]">
         <Sidebar />
         <Navbar />
-
-        <main className="container flex-1 mx-auto px-6 max-w-7xl">
+        <main className="container flex-1 mx-auto px-6 max-w-7xl pt-5">
           {children}
-
           {!home && (
             <Link
               href="/"
