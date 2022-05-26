@@ -1,10 +1,9 @@
-import type { NextPage } from "next";
-import { Layout } from "components";
-import { getSortedPostsData } from "../lib/posts";
-import { PostCard, Categories, PostWidget } from "components/post";
-import { motion } from "framer-motion";
 import React from "react";
-import { IntroTransition } from "@/components/animations/intro/introTransition";
+import { Layout, Hero, IntroTransition } from "components";
+import { PostCard, Categories, PostWidget } from "components/post";
+import { getSortedPostsData } from "lib/posts";
+import { motion } from "framer-motion";
+import type { NextPage } from "next";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -42,6 +41,7 @@ const Home: NextPage<PostProps> = ({ allPostsData, isFirstMount }) => {
           variants={content(isFirstMount)}
           className="space-y-8"
         >
+          <Hero />
           <p>
             Hola a todos, soy Marcelo Navarro, un desarrollador de software,
             titulado como Ingeniero en Informática.
@@ -57,7 +57,6 @@ const Home: NextPage<PostProps> = ({ allPostsData, isFirstMount }) => {
             <br />
             <br />
           </p>
-
           <section>
             <h2>Blog</h2>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
