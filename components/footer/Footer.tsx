@@ -6,7 +6,7 @@ export const Footer: FC = () => {
   return (
     <footer className="text-gray-700 dark:text-gray-400  rounded-lg ">
       <div className="from-[#b09da8] via-[#ebfffe] to-white bg-opacity-10">
-        <div className=" px-4 py-10 md:py-20">
+        <div className=" px-4 py-10 pt-0 md:py-20">
           <p className="h-0.5 w-full bg-white dark:bg-gray-700" />
           <div className="max-w-6xl mx-auto flex flex-col space-y-4 md:space-y-0 md:flex-row justify-between md:items-center mt-8">
             <div>
