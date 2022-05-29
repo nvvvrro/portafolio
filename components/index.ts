@@ -4,3 +4,4 @@ export * from "./nav";
 export * from "./footer";
 export * from "./logo";
 export * from "./animations";
+export * from "./hero";
