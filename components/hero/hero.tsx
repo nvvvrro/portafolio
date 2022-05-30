@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export const characters = [
-  "sorprendente",
-  "creativo",
-  "fabuloso",
-  "inteligente",
-  "calidad",
+  {
+    value: "asombroso",
+    color: "red",
+  },
+  { value: "creativo", color: "blue" },
+  { value: "fabuloso", color: "green" },
+  { value: "inteligente", color: "yellow" },
+  { value: "calidad", color: "purple" },
 ];
 
 const quoteVariants = {
@@ -54,7 +57,7 @@ export const Quotes = ({ className }: any) => {
         variants={quoteVariants}
         key={seconds}
       >
-        {characters[seconds % characters.length]}
+        {characters[seconds % characters.length].value}
       </motion.span>
     </AnimatePresence>
   );
