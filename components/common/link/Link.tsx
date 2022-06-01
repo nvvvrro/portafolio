@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from "react";
+import { FC, useCallback } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";

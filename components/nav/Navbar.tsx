@@ -1,8 +1,8 @@
-import { NavItem, DarkMode, Logo } from "components";
-import { routes } from "config/config";
-import { useTheme } from "next-themes";
 import { FC, useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import { NavItem, DarkMode, Logo } from "components";
+import { routes } from "config";
 import style from "./Navbar.module.css";
 
 const borderVariants = {

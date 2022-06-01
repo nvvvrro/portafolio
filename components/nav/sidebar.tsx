@@ -1,9 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion, useCycle, AnimatePresence } from "framer-motion";
-import { Link } from "components";
-import { Menu } from "./menu";
-import { routes } from "config/config";
 import { FC } from "react";
+import { motion, useCycle, AnimatePresence } from "framer-motion";
+import { Link, Menu } from "components";
+import { routes } from "config";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const sideVariants = {
   closed: {
@@ -51,7 +50,7 @@ const toggleVariants = {
   },
 };
 
-export const Sidebar:FC = () => {
+export const Sidebar: FC = () => {
   const [open, onToggle] = useCycle(false, true);
 
   return (
