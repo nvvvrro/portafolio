@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { LifeCycle } from "assets/lifeCycle";
 
 export const characters = [
   {
     value: "asombroso",
-    color: "red",
+    icon: "🔥",
+    color: "#f43f5e",
   },
-  { value: "creativo", color: "blue" },
-  { value: "fabuloso", color: "green" },
-  { value: "inteligente", color: "yellow" },
-  { value: "calidad", color: "purple" },
+  { value: "creativo", icon: "🚀", color: "#ec4899" },
+  { value: "fabuloso", icon: "🎉", color: "#d946ef" },
+  { value: "inteligente", icon: "💡", color: "#a855f7" },
+  { value: "seguro", icon: "🔒", color: "#8b5cf6" },
 ];
 
 const quoteVariants = {
@@ -21,7 +23,7 @@ const quoteVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.5,
+      delay: 0.3,
       duration: 0.5,
       ease: "easeInOut",
     },
@@ -30,34 +32,39 @@ const quoteVariants = {
     opacity: 0,
     y: 30,
     transition: {
-      delay: 0.5,
-      duration: 0.8,
+      delay: 0.4,
+      duration: 0.4,
       ease: "easeInOut",
     },
   },
 };
 
-export const Quotes = ({ className }: any) => {
+export const Quotes = ({ className = "" } = {}) => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds((seconds) => seconds + 1);
-    }, 3 * 1000);
+    }, 4 * 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const quote = characters[seconds % characters.length];
+  const color = `${quote.color}`;
 
   return (
     <AnimatePresence exitBeforeEnter>
       <motion.span
-        className={className}
+        className={`${className} drop-shadow-md shadow-black`}
         initial="initial"
         animate="animate"
         exit="exit"
         variants={quoteVariants}
         key={seconds}
+        style={{ color }}
       >
-        {characters[seconds % characters.length].value}
+        {quote.value}
+        <p className="text-3xl justify-center mt-2">{quote.icon}</p>
       </motion.span>
     </AnimatePresence>
   );
@@ -65,16 +72,18 @@ export const Quotes = ({ className }: any) => {
 
 export const Hero = () => {
   return (
-    <div className="flex flex-row items-center justify-between gap-2">
-      <div className="items-end z-0">
-        <span className="flex text-6xl font-normal  z-10">Desarrollando </span>
+    <div className="flex flex-col md:flex-row items-center justify-between gap-2 p-8">
+      <div className="items-end z-0 sm:text-5xl text-3xl">
+        <span className="flex font-normal tracking-widest">Desarrollando</span>
 
-        <span className="flex text-5xl font-light tracking-wide  z-10">
+        <span className="flex font-light tracking-wide">
           Software&nbsp;
-          <Quotes className="text-5xl font-light tracking-wide" />
+          <Quotes className="inline-flex exfont-normal tracking-wide" />
         </span>
+      </div>
 
-        <span className="text-5xl font-semibold tracking-wide"></span>
+      <div className="flex flex-col items-center justify-center">
+        <LifeCycle width={300} height={300} />
       </div>
     </div>
   );
