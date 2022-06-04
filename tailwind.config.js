@@ -36,6 +36,8 @@ module.exports = {
       green: colors.green,
       purple: colors.purple,
       slate: colors.slate,
+
+      transparent: "transparent",
     },
   },
   fontFamily: {

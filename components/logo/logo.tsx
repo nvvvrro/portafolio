@@ -49,14 +49,17 @@ export const Logo: FC = () => {
           animate="animate"
           onAnimationStart={activeAnimation.start}
           onAnimationComplete={activeAnimation.complete}
-          className={`${dark ? style.logo_text : "text-pink-800"}`}
+          className={`${dark && style.logo_text}`}
         >
           <div
             id="div_logo"
             className="p-6 relative h-12 sm:h-16 cursor-pointer"
           >
             <span
-              className={`flex items-center justify-center font-bold tracking-widest p-5 text-3xl sm:text-4xl md:text-5xl -translate-y-10 sm:-translate-y-9 md:-translate-y-11 `}
+              className={`flex items-center justify-center font-bold tracking-widest p-5 text-3xl sm:text-4xl md:text-5xl -translate-y-10 sm:-translate-y-9 md:-translate-y-11 ${
+                !dark &&
+                "text-transparent  bg-clip-text bg-gradient-to-r from-dark-second to-[#086aab]"
+              }`}
             >
               nvvvrro
             </span>
