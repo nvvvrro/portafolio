@@ -28,7 +28,7 @@ export const LifeCycle: FC<SVGProps<SVGSVGElement>> = (props) => {
           cx={220}
           cy={230}
           r={180}
-          fill={theme === "dark" ? "#4c1d95" : "#f2f2f2"}
+          fill={theme === "dark" ? "#171120" : "#f2f2f2"}
           animate={{
             scale: 1.1,
             transition: {
