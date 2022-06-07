@@ -41,12 +41,6 @@ const Home: NextPage<PostProps> = ({ allPostsData, isFirstMount }) => {
           variants={content(isFirstMount)}
           className="space-y-8"
         >
-          <div className="flex flex-col md:flex-row md:space-x-8 justify-center">
-            <p className="sm:text-2xl text-lg font-light text-center md:text-right">
-              Bienvenido a mi blog y portfolio. Aqui encontraras mis &nbsp;
-              <p className="sm:font-normal font-medium">proyectos, ideas y experiencias.</p>
-            </p>
-          </div>
           <Hero />
 
           <section>
