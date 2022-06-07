@@ -56,7 +56,7 @@ export const Sidebar: FC = () => {
   return (
     <div id="sidebar" className="sm:hidden">
       <motion.div
-        className={`flex fixed z-20 mt-6 p-2 bg-opacity-80 dark:bg-opacity-80 bg-rose-100 dark:bg-purple-300 ${
+        className={`flex fixed z-30 mt-6 p-2 bg-opacity-80 dark:bg-opacity-80 bg-rose-100 dark:bg-purple-300 ${
           open ? "rounded-3xl left-3" : "rounded-r-3xl"
         } 
         `}
@@ -73,7 +73,7 @@ export const Sidebar: FC = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="flex fixed flex-col pt-20 bg-rose-100 dark:bg-purple-200 rounded-r-2xl z-10 bg-opacity-70 dark:bg-opacity-70"
+            className="flex fixed flex-col pt-20 bg-rose-100 dark:bg-purple-200 rounded-r-2xl z-20 bg-opacity-70 dark:bg-opacity-70"
           >
             <motion.div
               variants={sideVariants}
