@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import { useDarkMode } from "hooks";
 import style from "./Logo.module.css";
 
 const logoVariants = {
@@ -14,10 +14,8 @@ const logoVariants = {
 };
 
 export const Logo: FC = () => {
-  const { resolvedTheme } = useTheme();
+  const [theme] = useDarkMode();
   const [mounted, setMounted] = useState(false);
-
-  const dark = resolvedTheme === "dark" ? true : false;
 
   useEffect(() => {
     setMounted(true);
@@ -27,13 +25,13 @@ export const Logo: FC = () => {
 
   const activeAnimation = {
     start: () => {
-      dark &&
+      theme === "dark" &&
         document
           .getElementById("container_logo")
           ?.classList.add(style.logo_text_motion);
     },
     complete: () => {
-      dark &&
+      theme === "dark" &&
         document
           .getElementById("container_logo")
           ?.classList.remove(style.logo_text_motion);
@@ -49,7 +47,7 @@ export const Logo: FC = () => {
           animate="animate"
           onAnimationStart={activeAnimation.start}
           onAnimationComplete={activeAnimation.complete}
-          className={`${dark && style.logo_text}`}
+          className={`${theme === "dark" && style.logo_text}`}
         >
           <div
             id="div_logo"
@@ -57,7 +55,7 @@ export const Logo: FC = () => {
           >
             <span
               className={`flex items-center justify-center font-bold tracking-widest p-5 text-3xl sm:text-4xl md:text-5xl -translate-y-10 sm:-translate-y-9 md:-translate-y-11 ${
-                !dark &&
+                theme === "light" &&
                 "text-transparent  bg-clip-text bg-gradient-to-r from-dark-second to-[#086aab]"
               }`}
             >
