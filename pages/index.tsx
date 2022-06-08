@@ -42,21 +42,7 @@ const Home: NextPage<PostProps> = ({ allPostsData, isFirstMount }) => {
           className="space-y-8"
         >
           <Hero />
-          <p>
-            Hola a todos, soy Marcelo Navarro, un desarrollador de software,
-            titulado como Ingeniero en Informática.
-            <br />
-            <br />
-            Me gusta aprender y compartir conocimientos, es por eso que existe
-            este blog, para que puedas conocer más sobre mí, como mis intereses,
-            ideas, soluciones, experiencia profesional y mi forma de trabajar.
-            <br />
-            <br />
-            Te invito a que leas mis artículos y te pongas en contacto conmigo
-            si tienes alguna duda o sugerencia.
-            <br />
-            <br />
-          </p>
+
           <section>
             <h2>Blog</h2>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

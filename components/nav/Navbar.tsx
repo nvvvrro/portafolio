@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { NavItem, DarkMode, Logo } from "components";
+import { useDarkMode } from "hooks";
 import { routes } from "config";
 import style from "./Navbar.module.css";
 
@@ -16,10 +16,8 @@ const borderVariants = {
 };
 
 export const Navbar: FC = () => {
-  const { resolvedTheme } = useTheme();
+  const [theme] = useDarkMode();
   const [mounted, setMounted] = useState(false);
-
-  const dark = resolvedTheme === "dark" ? true : false;
 
   useEffect(() => {
     setMounted(true);
@@ -29,13 +27,13 @@ export const Navbar: FC = () => {
 
   const activeAnimation = {
     start: () => {
-      dark &&
+      theme === "dark" &&
         document
           .getElementById("nav_border")
           ?.classList.add(style.nav_border_motion);
     },
     complete: () => {
-      dark &&
+      theme === "dark" &&
         document
           .getElementById("nav_border")
           ?.classList.remove(style.nav_border_motion);
@@ -52,7 +50,7 @@ export const Navbar: FC = () => {
             onAnimationStart={activeAnimation.start}
             onAnimationComplete={activeAnimation.complete}
             className={`${
-              dark
+              theme === "dark"
                 ? style.nav_border
                 : "border-opacity-60 border-b-2 border-b-dark-third"
             } transition-all duration-500`}

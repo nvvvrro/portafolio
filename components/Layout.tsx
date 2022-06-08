@@ -41,7 +41,7 @@ export const Layout: FC<LayoutProps> = ({ children, home, ...props }) => {
       <div className="bg-gradient-to-t from-[#ffe3f4] via-[#ebfffe] to-white dark:from-[#2b072d] dark:via-[#0f0623] dark:to-[#06010a]">
         <Sidebar />
         <Navbar />
-        <main className="container flex-1 mx-auto px-6 max-w-7xl pt-5">
+        <main className="container flex-1 mx-auto sm:px-10 px-6 max-w-7xl pt-5">
           {children}
           {!home && (
             <Link
