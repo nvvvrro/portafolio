@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Link } from "components";
-import { user, socialLinks } from "config";
+import { Link, RRSS } from "components";
+import { user } from "config";
 
 export const Footer: FC = () => {
   return (
@@ -22,17 +22,7 @@ export const Footer: FC = () => {
               </div>
             </div>
             <div className="space-x-6 flex flex-row items-center justify-end">
-              {socialLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  href={link.path}
-                  whileTap={{
-                    scale: 0.9,
-                  }}
-                >
-                  {link.icon}
-                </Link>
-              ))}
+              <RRSS />
             </div>
           </div>
         </div>
