@@ -1,10 +1,10 @@
 import {
-  faDev,
   faFacebook,
   faGithub,
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { faFileCode } from "@fortawesome/free-regular-svg-icons";
 import {
   faHome,
   faFileContract,
@@ -20,7 +20,7 @@ export const routes = [
   {
     title: "Blog",
     path: "/blog",
-    icon: faDev,
+    icon: faFileCode,
   },
   {
     title: "Resume",
@@ -36,9 +36,9 @@ export const routes = [
 
 export const socialLinks = [
   {
-    name: "instagram",
-    path: "https://instagram.com/nvvvrro",
-    icon: faInstagram,
+    name: "github",
+    path: "https://github.com/nvvvrro",
+    icon: faGithub,
   },
   {
     name: "linkedin",
@@ -46,9 +46,9 @@ export const socialLinks = [
     icon: faLinkedin,
   },
   {
-    name: "github",
-    path: "https://github.com/nvvvrro",
-    icon: faGithub,
+    name: "instagram",
+    path: "https://instagram.com/nvvvrro",
+    icon: faInstagram,
   },
   {
     name: "facebook",
